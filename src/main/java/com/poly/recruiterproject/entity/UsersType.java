@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 public class UsersType implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, name = "user_type_id")
     private int userTypeId;
 

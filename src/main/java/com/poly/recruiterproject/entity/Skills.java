@@ -1,13 +1,17 @@
 package com.poly.recruiterproject.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "skills")
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Skills {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +26,12 @@ public class Skills {
 
     @Column(name = "years_of_experience")
     private String yearOfExperience;
+
+    @OneToOne
+    @MapsId // sử dụng user_account_id làm khóa chính và khóa ngoại
+    @JoinColumn(name = "user_account_id")
+    private JobSeekeProfile jobSeekeProfile;
+
 
 
 }
