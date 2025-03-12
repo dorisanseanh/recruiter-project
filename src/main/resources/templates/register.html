@@ -56,7 +56,7 @@
                                             <input
                                                     placeholder="Email"
                                                     name="email"
-                                                    th:field="*{email}"
+
                                                     type="email"
                                                     style="width: 100%"
                                                     class="form-control"
@@ -72,7 +72,7 @@
                                                     min="8"
                                                     placeholder="Password"
                                                     name="password"
-                                                    th:field="*{password}"
+
                                                     type="password"
                                                     class="form-control pwd"
                                                     required
@@ -85,14 +85,8 @@
                                         <select
                                                 required
                                                 class="form-control"
-                                                th:field="*{userTypeId}"
                                         >
-                                            <th:block th:each="userType :${getAllTypes}">
-                                                <option
-                                                        th:text="${userType.userTypeName}"
-                                                        th:value="${userType.userTypeId}"
-                                                ></option>
-                                            </th:block>
+
                                         </select>
                                     </div>
                                 </div>

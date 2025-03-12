@@ -14,11 +14,11 @@ import java.util.Date;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class User implements Serializable {
+public class Users implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id", nullable = false)
-    private int id;
+    private int userId;
     
     @Column(unique = true)
     private String email;
@@ -32,9 +32,9 @@ public class User implements Serializable {
     @Column(name = "registation_date")
     private Date registattionDate;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_type_id", nullable = false)
-    private UsersType userType;
+    private UsersType userTypeId;
 
 
 }

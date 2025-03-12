@@ -17,14 +17,14 @@ import java.util.List;
 @AllArgsConstructor
 public class UsersType implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(unique = true, name = "user_type_id")
     private int userTypeId;
 
     @Column(unique = true, name = "user_type_name")
     private String userTypeName;
 
-    @OneToMany(mappedBy = "userType", cascade = CascadeType.ALL)
-    private List<User> userType;
+    @OneToMany(mappedBy = "userTypeId", cascade = CascadeType.ALL)
+    private List<Users> users;
 
 }

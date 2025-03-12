@@ -1,16 +1,16 @@
 package com.poly.recruiterproject.service;
 
 import com.poly.recruiterproject.entity.UsersType;
-import com.poly.recruiterproject.repository.UserTypeRepositoty;
+import com.poly.recruiterproject.repository.UsersTypeRepositoty;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class UsersTypeService {
-    private final UserTypeRepositoty userTypeRepositoty;
+    private final UsersTypeRepositoty userTypeRepositoty;
 
-    public UsersTypeService(UserTypeRepositoty userTypeRepositoty) {
+    public UsersTypeService(UsersTypeRepositoty userTypeRepositoty) {
         this.userTypeRepositoty = userTypeRepositoty;
     }
 

@@ -1,4 +1,4 @@
 package com.poly.recruiterproject.entity;
 
-public class JobSeekerSave {
-}
+//public class JobSeekerSave {
+//}

@@ -2,7 +2,7 @@ package com.poly.recruiterproject.controller;
 
 
 import com.poly.recruiterproject.entity.UsersType;
-import com.poly.recruiterproject.entity.User;
+import com.poly.recruiterproject.entity.Users;
 import com.poly.recruiterproject.service.UsersTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,14 +26,18 @@ public class UserController {
     public String register(Model model) {
         List<UsersType> usersType = usersTypeService.getAllUsersTypes();
         model.addAttribute("getAllTypes", usersType);
-        model.addAttribute("user", new User());
+        model.addAttribute("user", new Users());
         return "register";
     }
     @PostMapping("/register/new")
-    public String userRegistration(@Validated User user) {
+    public String userRegistration(@Validated Users user) {
         System.out.println("User:" +user);
         return "dashboard";
 
+    }
+    @GetMapping("/home")
+    public String home(Model model) {
+        return "index";
     }
 
 }
