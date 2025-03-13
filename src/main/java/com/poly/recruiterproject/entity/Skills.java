@@ -23,10 +23,48 @@ public class Skills {
     @Column(name = "years_of_experience")
     private String yearOfExperience;
 
-    @OneToOne
-    @MapsId // sử dụng user_account_id làm khóa chính và khóa ngoại
-    @JoinColumn(name = "user_account_id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "job_seeker_profile")
     private JobSeekeProfile jobSeekeProfile;
 
 
+    public int getSkillId() {
+        return skillId;
+    }
+
+    public void setSkillId(int skillId) {
+        this.skillId = skillId;
+    }
+
+    public String getExperienceLevel() {
+        return experienceLevel;
+    }
+
+    public void setExperienceLevel(String experienceLevel) {
+        this.experienceLevel = experienceLevel;
+    }
+
+    public String getSkillName() {
+        return skillName;
+    }
+
+    public void setSkillName(String skillName) {
+        this.skillName = skillName;
+    }
+
+    public String getYearOfExperience() {
+        return yearOfExperience;
+    }
+
+    public void setYearOfExperience(String yearOfExperience) {
+        this.yearOfExperience = yearOfExperience;
+    }
+
+    public JobSeekeProfile getJobSeekeProfile() {
+        return jobSeekeProfile;
+    }
+
+    public void setJobSeekeProfile(JobSeekeProfile jobSeekeProfile) {
+        this.jobSeekeProfile = jobSeekeProfile;
+    }
 }
