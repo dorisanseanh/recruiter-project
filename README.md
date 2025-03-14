@@ -1,8 +1,3 @@
-# recruiter-project
-The application allows employers to post recruitment information on the system, job seekers can register to apply for that recruitment information.
-Here’s a clean and professional `README.md` for your **Job Portal** project in English:
-
----
 
 # 🌟 Job Portal
 
