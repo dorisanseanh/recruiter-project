@@ -30,17 +30,18 @@ The project uses **MySQL** with the following key tables:
 ## 🔧 How to Run the Project
 1. **Clone the repository:**
    ```bash
-   git clone <repo_url>
+   git clone https://github.com/dorisanseanh/recruiter-project.git
    cd job-portal
    ```
 2. **Set up the database:**
     - Open MySQL CLI or a database tool like MySQL Workbench.
-    - Run the `schema.sql` file:
+    - Run the `jobportal.sql` file:
    ```sql
-   source path/to/your/schema.sql;
+   source path/to/your/jobportal.sql;
    ```
 3. **Configure the application:**
     - Add database credentials in `application.properties` (for Spring Boot).
+    - 
 4. **Run the application:**
    ```bash
    ./mvnw spring-boot:run
