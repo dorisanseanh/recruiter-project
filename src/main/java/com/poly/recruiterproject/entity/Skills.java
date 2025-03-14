@@ -2,12 +2,16 @@ package com.poly.recruiterproject.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "skills")
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class Skills {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,43 +32,4 @@ public class Skills {
     private JobSeekerProfile jobSeekerProfileobSeekeProfile;
 
 
-    public int getSkillId() {
-        return skillId;
-    }
-
-    public void setSkillId(int skillId) {
-        this.skillId = skillId;
-    }
-
-    public String getExperienceLevel() {
-        return experienceLevel;
-    }
-
-    public void setExperienceLevel(String experienceLevel) {
-        this.experienceLevel = experienceLevel;
-    }
-
-    public String getSkillName() {
-        return skillName;
-    }
-
-    public void setSkillName(String skillName) {
-        this.skillName = skillName;
-    }
-
-    public String getYearOfExperience() {
-        return yearOfExperience;
-    }
-
-    public void setYearOfExperience(String yearOfExperience) {
-        this.yearOfExperience = yearOfExperience;
-    }
-
-    public JobSeekerProfile getJobSeekerProfileobSeekeProfile() {
-        return jobSeekerProfileobSeekeProfile;
-    }
-
-    public void setJobSeekerProfileobSeekeProfile(JobSeekerProfile jobSeekerProfileobSeekeProfile) {
-        this.jobSeekerProfileobSeekeProfile = jobSeekerProfileobSeekeProfile;
-    }
 }
