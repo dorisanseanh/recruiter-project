@@ -39,7 +39,6 @@ The project uses **MySQL** with the following key tables:
  
 3. **Configure the application:**
     - Add database credentials in `application.properties` (for Spring Boot).
-    - 
 4. **Run the application:**
    ```bash
    ./mvnw spring-boot:run
