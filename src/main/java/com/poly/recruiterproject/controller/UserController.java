@@ -39,8 +39,8 @@ public class UserController {
 
     @PostMapping("/register/new")
     public String userRegistration(@Validated Users user, Model model) {
-        Optional<Users> userByUEmail = usersService.getUserByUEmail(user.getEmail());
-        if (userByUEmail.isPresent()) {
+        Optional<Users> userByEmail = usersService.getByEmail(user.getEmail());
+        if (userByEmail.isPresent()) {
             model.addAttribute("error", "Email already in registed, try to register again with other email.");
             System.out.println("Error: " + model.getAttribute("error"));
             List<UsersType> usersType = usersTypeService.getAllUsersTypes();

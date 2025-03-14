@@ -2,12 +2,17 @@ package com.poly.recruiterproject.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 @Entity
 @Table(name = "recruiter_profile")
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class RecruiterProfile {
     @Id
     @Column(name = "user_account_id")
@@ -36,95 +41,14 @@ public class RecruiterProfile {
 
     @OneToOne
     @JoinColumn(name = "user_account_id")
+    @MapsId
     private Users user;
 
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getProfilePhoto() {
-        return profilePhoto;
-    }
-
-    public void setProfilePhoto(String profilePhoto) {
-        this.profilePhoto = profilePhoto;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getCompany() {
-        return company;
-    }
-
-    public void setCompany(String company) {
-        this.company = company;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public Users getUser() {
-        return user;
+    public RecruiterProfile(Users savedUser) {
+        this.user = savedUser;
     }
 
     public void setUser(Users user) {
         this.user = user;
     }
-
-    public int getUserAccountId() {
-        return userAccountId;
-    }
-
-
-    public void setUserAccountId(int userAccountId) {
-        this.userAccountId = userAccountId;
-    }
-
-    @Override
-    public String toString() {
-        return "RecruiterProfile{" +
-                "userAccountId=" + userAccountId +
-                ", city='" + city + '\'' +
-                ", company='" + company + '\'' +
-                ", country='" + country + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", profilePhoto='" + profilePhoto + '\'' +
-                ", state='" + state + '\'' +
-                ", user=" + user +
-                '}';
-    }
-
-
 }

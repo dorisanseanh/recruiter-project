@@ -80,4 +80,5 @@ public class Users implements Serializable {
     public void setUserTypeId(UsersType userTypeId) {
         this.userTypeId = userTypeId;
     }
+
 }
