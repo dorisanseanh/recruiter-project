@@ -8,6 +8,8 @@ import com.poly.recruiterproject.repository.RecruiterProfileRepository;
 import com.poly.recruiterproject.repository.UsersRepository;
 import com.poly.recruiterproject.repository.UsersTypeRepositoty;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -48,10 +50,14 @@ public class UserService {
         if (userTypeId == 1) {
             recruiterProfileRepository.save(new RecruiterProfile(savedUser));
         } else {
-            jobSeekerProfileRepository.save( new JobSeekerProfile(savedUser));
+            jobSeekerProfileRepository.save(new JobSeekerProfile(savedUser));
         }
         return savedUser; // Ensure you return the entity with the assigned ID
     }
 
 
+//    public Object getCurrentUserService() {
+//        Authentication authentication = SecurityContextHolder.getContext().setAuthentication();
+//
+//    }
 }
