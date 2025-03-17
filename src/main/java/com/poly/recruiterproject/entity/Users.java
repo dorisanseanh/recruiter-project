@@ -2,7 +2,10 @@ package com.poly.recruiterproject.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -10,6 +13,7 @@ import java.util.Date;
 @Table(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Users implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +35,6 @@ public class Users implements Serializable {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_type_id", nullable = false)
     private UsersType userTypeId;
-
 
     public int getUserId() {
         return userId;
@@ -80,5 +83,4 @@ public class Users implements Serializable {
     public void setUserTypeId(UsersType userTypeId) {
         this.userTypeId = userTypeId;
     }
-
 }
