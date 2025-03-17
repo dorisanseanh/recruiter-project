@@ -20,12 +20,10 @@ import java.util.Optional;
 @RequestMapping("/recruiter-profile")
 public class RecruiterProfileController {
     private final UsersRepository usersRepository;
-    private final RecruiterProfileRepository recruiterProfileRepository;
     private final RecruiterProfileService recruiterProfileService;
 
-    public RecruiterProfileController(UsersRepository usersRepository, RecruiterProfileRepository recruiterProfileRepository, RecruiterProfileService recruiterProfileService) {
+    public RecruiterProfileController(UsersRepository usersRepository, RecruiterProfileService recruiterProfileService) {
         this.usersRepository = usersRepository;
-        this.recruiterProfileRepository = recruiterProfileRepository;
         this.recruiterProfileService = recruiterProfileService;
     }
 
