@@ -10,7 +10,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,7 +54,7 @@ public class UserController {
             return "register";
         }
         usersService.addNew(user);
-        return "dashboard";
+        return "redirect:/dashboard/ ";
 
     }
 
