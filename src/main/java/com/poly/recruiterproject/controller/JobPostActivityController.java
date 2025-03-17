@@ -17,15 +17,19 @@ public class JobPostActivityController {
     public JobPostActivityController(UserService userService) {
         this.userService = userService;
     }
+
     @GetMapping("/dashboard/")
     public String jobPostActivity(Model model) {
         Object currentUserProfile = userService.getCurrentUserService();
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if(!(authentication instanceof AnonymousAuthenticationToken)) {
+        if (!(authentication instanceof AnonymousAuthenticationToken)) {
             String currentUsername = authentication.getName();
             model.addAttribute("username", currentUsername);
         }
         model.addAttribute("user", currentUserProfile);
+        System.out.println("User Profile Class: " + currentUserProfile.getClass().getName());
+        System.out.println("User Profile Data: " + currentUserProfile);
+
         return "dashboard";
     }
 }

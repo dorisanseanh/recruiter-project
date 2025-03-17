@@ -72,7 +72,7 @@
 
         </ul>
         <label th:if="${user.firstName != null && user.lastName != null}"
-               th:text="${user.firstName+' '+user.lastName}"
+               th:text="${user.firstName+' '+user}"
                class="nav-item nav-link px-2 me-3">
         </label>
 
@@ -97,20 +97,20 @@
                         th:href="@{/job-details-apply/{id}(id=${jobPost.jobPostId})}"
                         style="text-decoration: none; color: black"
                 >
-                    <div
-                            onclick="window.location=/job-details-apply/{id}(id=${jobPost.jobPostId})"
-                            class="job-row"
-                    >
+<!--                    <div-->
+<!--&lt;!&ndash;                            onclick="window.location=/job-details-apply/{id}(id=${jobPost.jobPostId})"&ndash;&gt;-->
+<!--                            class="job-row"-->
+<!--                    >-->
                         <div class="row">
                             <div class="col-md-4">
                                 <label class="job-title text-left">
                                     [[${jobPost.jobTitle}]]
-                                    <span
-                                            class="title-span"
-                                            sec:authorize="hasAuthority('Recruiter')"
-                                            th:text="'('+ @{${jobPost.totalCandidates}}+' Candidates Applied)'"
-                                    >(xx candidates applied)</span
-                                    >
+<!--                                    <span-->
+<!--                                            class="title-span"-->
+<!--                                            sec:authorize="hasAuthority('Recruiter')"-->
+<!--                                            th:text="'('+ @{${jobPost.totalCandidates}}+' Candidates Applied)'"-->
+<!--                                    >(xx candidates applied)</span-->
+<!--                                    >-->
                                     <span
                                             class="title-span"
                                             sec:authorize="hasAuthority('Job Seeker')"
@@ -132,13 +132,13 @@
                                     City State</label
                                 >
                             </div>
-                            <div class="col-md-4 text-right">
-                                <label th:text="@{${jobPost.jobCompanyId.name}}"
-                                >Recruiter Company Name</label
-                                >
+<!--                            <div class="col-md-4 text-right">-->
+<!--                                <label th:text="@{${jobPost.jobCompanyId.name}}"-->
+<!--                                >Recruiter Company Name</label-->
+<!--                                >-->
                             </div>
-                        </div>
-                    </div>
+<!--                        </div>-->
+<!--                    </div>-->
                 </a>
             </th:block>
         </div>
