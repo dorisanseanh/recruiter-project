@@ -42,7 +42,6 @@ public class RecruiterProfile {
     public RecruiterProfile() {
 
     }
-
     public void setUser(Users user) {
         this.user = user;
     }
@@ -114,4 +113,5 @@ public class RecruiterProfile {
     public Users getUser() {
         return user;
     }
+
 }
