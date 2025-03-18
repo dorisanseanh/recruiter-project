@@ -114,4 +114,11 @@ public class RecruiterProfile {
     public Users getUser() {
         return user;
     }
+
+    @Transient
+    public String getPhotosImagePath() {
+        if (profilePhoto == null) return null;
+        return "/photos/recruiter/" + userAccountId + "/" + profilePhoto;
+    }
+
 }

@@ -27,8 +27,6 @@ public class JobPostActivityController {
             model.addAttribute("username", currentUsername);
         }
         model.addAttribute("user", currentUserProfile);
-        System.out.println("User Profile Class: " + currentUserProfile.getClass().getName());
-        System.out.println("User Profile Data: " + currentUserProfile);
 
         return "dashboard";
     }

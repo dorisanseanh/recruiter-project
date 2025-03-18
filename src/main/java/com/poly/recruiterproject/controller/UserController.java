@@ -37,7 +37,6 @@ public class UserController {
     public String register(Model model) {
         List<UsersType> usersType = usersTypeService.getAllUsersTypes();
         model.addAttribute("getAllTypes", usersType);
-
         model.addAttribute("user", new Users());
         return "register";
     }
