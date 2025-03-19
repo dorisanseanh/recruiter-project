@@ -1,3 +1,4 @@
+
 package com.poly.recruiterproject.controller;
 
 import com.poly.recruiterproject.entity.RecruiterProfile;
@@ -5,6 +6,8 @@ import com.poly.recruiterproject.entity.Users;
 import com.poly.recruiterproject.service.RecruiterProfileService;
 import com.poly.recruiterproject.service.UserService;
 import com.poly.recruiterproject.util.FileUploadUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -24,6 +27,8 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/recruiter-profile")
 public class RecruiterProfileController {
+    private static final Logger logger = LoggerFactory.getLogger(RecruiterProfileController.class);
+
     private final RecruiterProfileService recruiterProfileService;
     private final UserService userService;
 
@@ -37,39 +42,58 @@ public class RecruiterProfileController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
             String currentUsername = authentication.getName();
-            Users users = userService.getByEmail(currentUsername).orElseThrow(() -> new UsernameNotFoundException("Couldn't find user"));
+            logger.info("Fetching recruiter profile for user: {}", currentUsername);
+            Users users = userService.getByEmail(currentUsername)
+                    .orElseThrow(() -> {
+                        logger.error("User not found: {}", currentUsername);
+                        return new UsernameNotFoundException("Couldn't find user");
+                    });
+
             Optional<RecruiterProfile> recruiterProfile = recruiterProfileService.getOne(users.getUserId());
-            if (recruiterProfile.isPresent()) {
-                model.addAttribute("profile", recruiterProfile.get());
-            }
+            recruiterProfile.ifPresent(profile -> model.addAttribute("profile", profile));
+
+            logger.info("Recruiter profile loaded successfully for user: {}", currentUsername);
         }
         return "recruiter_profile";
     }
 
-    @PostMapping("addNew")
+    @PostMapping("/addNew")
     public String addNew(RecruiterProfile recruiterProfile, @RequestParam("image") MultipartFile multipartFile, Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
             String currentUsername = authentication.getName();
-            Users users = userService.getByEmail(currentUsername).orElseThrow(() -> new UsernameNotFoundException("Couldn't find user"));
+            logger.info("Adding new recruiter profile for user: {}", currentUsername);
+            Users users = userService.getByEmail(currentUsername)
+                    .orElseThrow(() -> {
+                        logger.error("User not found: {}", currentUsername);
+                        return new UsernameNotFoundException("Couldn't find user");
+                    });
+
             recruiterProfile.setUser(users);
             recruiterProfile.setUserAccountId(users.getUserId());
         }
+
         model.addAttribute("profile", recruiterProfile);
         String fileName = "";
-        if (!multipartFile.getOriginalFilename().equals("")) {
+
+        String originalFilename = multipartFile.getOriginalFilename();
+        if (originalFilename != null && !originalFilename.isEmpty()) {
             fileName = StringUtils.cleanPath(Objects.requireNonNull(multipartFile.getOriginalFilename()));
             recruiterProfile.setProfilePhoto(fileName);
+            logger.info("Uploading profile photo: {}", fileName);
         }
-        RecruiterProfile savedUser = recruiterProfileService.addNew(recruiterProfile);
-        String uploadDir = "photos/recruiter/" + savedUser.getUserAccountId();
+
+        RecruiterProfile savedProfile = recruiterProfileService.addNew(recruiterProfile);
+        String uploadDir = "photos/recruiter/" + savedProfile.getUserAccountId();
+
         try {
             FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
-
+            logger.info("Profile photo uploaded successfully: {}", fileName);
         } catch (Exception e) {
-            e.printStackTrace();
-
+            logger.error("Error uploading profile photo: {}", e.getMessage(), e);
         }
-        return "redirect:/dashboard";
+
+        logger.info("Recruiter profile added successfully for user: {}", recruiterProfile.getUser().getEmail());
+        return "redirect:/dashboard/";
     }
 }

@@ -7,6 +7,8 @@ import com.poly.recruiterproject.repository.JobSeekerProfileRepository;
 import com.poly.recruiterproject.repository.RecruiterProfileRepository;
 import com.poly.recruiterproject.repository.UsersRepository;
 import com.poly.recruiterproject.repository.UsersTypeRepositoty;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -22,6 +24,7 @@ import java.util.Optional;
 
 @Service
 public class UserService {
+    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
     private final UsersRepository usersRepository;
     private final RecruiterProfileRepository recruiterProfileRepository;
     private final JobSeekerProfileRepository jobSeekerProfileRepository;
@@ -70,8 +73,7 @@ public class UserService {
             int userId = users.getUserId();
             if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("Recruiter"))) {
                 RecruiterProfile recruiterProfile = recruiterProfileRepository.findById(userId).orElse(new RecruiterProfile());
-                System.out.println("Recruiter Profile: " + recruiterProfile);
-
+                logger.info("RecruiterProfile: " + recruiterProfile);
                 return recruiterProfile;
             } else {
                 JobSeekerProfile jobSeekerProfile = jobSeekerProfileRepository.findById(userId).orElse(new JobSeekerProfile());
