@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -84,7 +85,8 @@ public class RecruiterProfileController {
         }
 
         RecruiterProfile savedProfile = recruiterProfileService.addNew(recruiterProfile);
-        String uploadDir = "photos/recruiter/" + savedProfile.getUserAccountId();
+        System.out.println("Current directory: " + System.getProperty("user.dir"));
+        String uploadDir = System.getProperty("user.dir") + "/uploads/photos/recruiter/" + savedProfile.getUserAccountId();
 
         try {
             FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
