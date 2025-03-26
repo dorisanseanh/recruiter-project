@@ -63,15 +63,7 @@ public class JobLocation {
         this.jobPosts = jobPosts;
     }
 
-    public JobLocation(int jobLocationId, String city, String country, String state, List<JobPostActivity> jobPosts) {
-        this.jobLocationId = jobLocationId;
-        this.city = city;
-        this.country = country;
-        this.state = state;
-        this.jobPosts = jobPosts;
-    }
     public JobLocation() {
-
     }
 }
 
