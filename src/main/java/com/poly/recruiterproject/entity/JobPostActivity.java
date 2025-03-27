@@ -28,7 +28,7 @@ public class JobPostActivity implements Serializable {
     private Date postedDate;
 
     @Column(name = "remote")
-    private Boolean remote;
+    private String remote;
 
     @Column(name = "salary")
     private double salary;
@@ -43,7 +43,7 @@ public class JobPostActivity implements Serializable {
     @JoinColumn(name = "job_company_id")
     private JobCompany jobCompany;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "job_location_id")
     private JobLocation jobLocation;
 
@@ -91,11 +91,11 @@ public class JobPostActivity implements Serializable {
         this.postedDate = postedDate;
     }
 
-    public Boolean getRemote() {
+    public String getRemote() {
         return remote;
     }
 
-    public void setRemote(Boolean remote) {
+    public void setRemote(String remote) {
         this.remote = remote;
     }
 

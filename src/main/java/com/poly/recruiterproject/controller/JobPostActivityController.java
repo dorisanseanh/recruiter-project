@@ -1,4 +1,5 @@
 package com.poly.recruiterproject.controller;
+
 import com.poly.recruiterproject.entity.JobPostActivity;
 import com.poly.recruiterproject.entity.Users;
 import com.poly.recruiterproject.service.JobPostActivityService;
@@ -44,14 +45,16 @@ public class JobPostActivityController {
         model.addAttribute("user", userService.getCurrentUserService());
         return "add-jobs";
     }
+
     @PostMapping("/dashboard/addNew")
-    public String addNew (JobPostActivity jobPostActivity, Model model) {
+    public String addNew(JobPostActivity jobPostActivity, Model model) {
         Users user = userService.getCurrentUser();
         if (user != null) {
-            jobPostActivity.setPostedById(user);}
+            jobPostActivity.setPostedById(user);
+        }
         jobPostActivity.setPostedDate(new Date());
         model.addAttribute("jobPostActivity", jobPostActivity);
-        JobPostActivity saved = jobPostActivityService.save(jobPostActivity);
+        JobPostActivity saved = jobPostActivityService.addNew(jobPostActivity);
         return "redirect:/dashboard/";
 
     }
