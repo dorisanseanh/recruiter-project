@@ -65,6 +65,14 @@ public class JobLocation {
 
     public JobLocation() {
     }
+
+    public JobLocation(int jobLocationId, String city, String country, String state) {
+        this.jobLocationId = jobLocationId;
+        this.city = city;
+        this.country = country;
+        this.state = state;
+
+    }
 }
 
 

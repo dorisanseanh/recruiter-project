@@ -15,6 +15,7 @@ public class JobCompany {
     @Column(name = "logo")
     private String jobCompanyLogo;
 
+
     public int getJobCompanyId() {
         return jobCompanyId;
     }
