@@ -7,45 +7,50 @@ public class JobCompany {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int jobCompanyId;
+    private int id;
 
     @Column(name = "name")
-    private String jobCompanyName;
+    private String name;
 
     @Column(name = "logo")
-    private String jobCompanyLogo;
+    private String logo;
 
-
-    public int getJobCompanyId() {
-        return jobCompanyId;
+    public int getId() {
+        return id;
     }
 
-    public void setJobCompanyId(int jobCompanyId) {
-        this.jobCompanyId = jobCompanyId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getJobCompanyName() {
-        return jobCompanyName;
+    public String getName() {
+        return name;
     }
 
-    public void setJobCompanyName(String jobCompanyName) {
-        this.jobCompanyName = jobCompanyName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getJobCompanyLogo() {
-        return jobCompanyLogo;
+    public String getLogo() {
+        return logo;
     }
 
-    public void setJobCompanyLogo(String jobCompanyLogo) {
-        this.jobCompanyLogo = jobCompanyLogo;
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 
-    public JobCompany(int jobCompanyId, String jobCompanyName, String jobCompanyLogo) {
-        this.jobCompanyId = jobCompanyId;
-        this.jobCompanyName = jobCompanyName;
-        this.jobCompanyLogo = jobCompanyLogo;
+    public JobCompany(int id, String name, String logo) {
+        this.id = id;
+        this.name = name;
+        this.logo = logo;
     }
 
-    public JobCompany() {
+    @Override
+    public String toString() {
+        return "JobCompany{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", logo='" + logo + '\'' +
+                '}';
     }
 }

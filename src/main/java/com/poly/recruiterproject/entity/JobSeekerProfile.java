@@ -1,8 +1,6 @@
 package com.poly.recruiterproject.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
-
 @Entity
 @Table(name = "job_seeker_profile")
 public class JobSeekerProfile {

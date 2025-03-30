@@ -9,7 +9,7 @@ public class JobLocation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int jobLocationId;
+    private int id;
 
     @Column(name = "city")
     private String city;
@@ -20,15 +20,15 @@ public class JobLocation {
     @Column(name = "state")
     private String state;
 
-    @OneToMany(mappedBy = "jobLocation", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "jobLocationId", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<JobPostActivity> jobPosts;
 
-    public int getJobLocationId() {
-        return jobLocationId;
+    public int getId() {
+        return id;
     }
 
-    public void setJobLocationId(int jobLocationId) {
-        this.jobLocationId = jobLocationId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCity() {
@@ -63,15 +63,22 @@ public class JobLocation {
         this.jobPosts = jobPosts;
     }
 
-    public JobLocation() {
-    }
-
-    public JobLocation(int jobLocationId, String city, String country, String state) {
-        this.jobLocationId = jobLocationId;
+    public JobLocation(int id, String city, String country, String state) {
+        this.id = id;
         this.city = city;
         this.country = country;
         this.state = state;
+    }
 
+    @Override
+    public String toString() {
+        return "JobLocation{" +
+                "id=" + id +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                ", state='" + state + '\'' +
+                ", jobPosts=" + jobPosts +
+                '}';
     }
 }
 

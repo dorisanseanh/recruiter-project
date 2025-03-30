@@ -7,9 +7,8 @@ public class RecuiterJobsDto {
     private Long totalCandidates;
     private Integer jobPostId;
     private String jobTitle;
-    private JobLocation jobLocation;
-    private JobCompany jobCompany;
-
+    private JobLocation jobLocationId;
+    private JobCompany jobCompanyId;
     public Long getTotalCandidates() {
         return totalCandidates;
     }
@@ -34,27 +33,28 @@ public class RecuiterJobsDto {
         this.jobTitle = jobTitle;
     }
 
-    public JobLocation getJobLocation() {
-        return jobLocation;
+    public JobLocation getJobLocationId() {
+        return jobLocationId;
     }
 
-    public void setJobLocation(JobLocation jobLocation) {
-        this.jobLocation = jobLocation;
+    public void setJobLocationId(JobLocation jobLocationId) {
+        this.jobLocationId = jobLocationId;
     }
 
-    public JobCompany getJobCompany() {
-        return jobCompany;
+    public JobCompany getJobCompanyId() {
+        return jobCompanyId;
     }
 
-    public void setJobCompany(JobCompany jobCompany) {
-        this.jobCompany = jobCompany;
+    public void setJobCompanyId(JobCompany jobCompanyId) {
+        this.jobCompanyId = jobCompanyId;
     }
 
-    public RecuiterJobsDto(Long totalCandidates, Integer jobPostId, String jobTitle, JobLocation jobLocation, JobCompany jobCompany) {
+
+    public RecuiterJobsDto(Long totalCandidates, Integer jobPostId, String jobTitle, JobLocation jobLocationId, JobCompany jobCompanyId) {
         this.totalCandidates = totalCandidates;
         this.jobPostId = jobPostId;
         this.jobTitle = jobTitle;
-        this.jobLocation = jobLocation;
-        this.jobCompany = jobCompany;
+        this.jobLocationId = jobLocationId;
+        this.jobCompanyId = jobCompanyId;
     }
 }

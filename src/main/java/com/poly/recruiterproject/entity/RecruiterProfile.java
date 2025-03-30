@@ -121,4 +121,15 @@ public class RecruiterProfile {
         return "/photos/recruiter/" + userAccountId + "/" + profilePhoto;
     }
 
+    public RecruiterProfile(int userAccountId, String city, String company, String country, String firstName, String lastName, String profilePhoto, String state, Users user) {
+        this.userAccountId = userAccountId;
+        this.city = city;
+        this.company = company;
+        this.country = country;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.profilePhoto = profilePhoto;
+        this.state = state;
+        this.user = user;
+    }
 }

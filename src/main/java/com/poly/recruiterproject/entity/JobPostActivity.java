@@ -40,12 +40,12 @@ public class JobPostActivity implements Serializable {
     private Boolean isSaved;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "job_company_id")
-    private JobCompany jobCompany;
+    @JoinColumn(name = "job_company_id", referencedColumnName = "id")
+    private JobCompany jobCompanyId;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "job_location_id")
-    private JobLocation jobLocation;
+    @JoinColumn(name = "job_location_id", referencedColumnName = "id")
+    private JobLocation jobLocationId;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "posted_by_id", referencedColumnName = "user_id")
@@ -123,21 +123,20 @@ public class JobPostActivity implements Serializable {
         isSaved = saved;
     }
 
-    public JobCompany getJobCompany() {
-        return jobCompany;
+    public JobCompany getJobCompanyId() {
+        return jobCompanyId;
     }
 
-    public void setJobCompany(JobCompany jobCompany) {
-        this.jobCompany = jobCompany;
+    public void setJobCompanyId(JobCompany jobCompanyId) {
+        this.jobCompanyId = jobCompanyId;
     }
 
-
-    public JobLocation getJobLocation() {
-        return jobLocation;
+    public JobLocation getJobLocationId() {
+        return jobLocationId;
     }
 
-    public void setJobLocation(JobLocation jobLocation) {
-        this.jobLocation = jobLocation;
+    public void setJobLocationId(JobLocation jobLocationId) {
+        this.jobLocationId = jobLocationId;
     }
 
     public Users getPostedById() {

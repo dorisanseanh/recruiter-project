@@ -136,15 +136,14 @@
                             </div>
                             <div class="col-md-4 text-center">
                                 <label
-                                        th:text="${jobPost.jobLocation.city+', '+ jobPost.jobLocation.state}"
+                                        th:text="${jobPost.jobLocationId.city+', '+ jobPost.jobLocationId.state}"
                                 >
                                     City State</label
                                 >
                             </div>
                             <div class="col-md-4 text-right">
-                                <label th:text="@{${jobPost.jobCompany.jobCompanyName}}"
-                                >Recruiter Company Name</label
-                                >
+                                <label th:text="@{${jobPost.jobCompanyId.name}}"
+                                >Recruiter Company Name</label>
                             </div>
                         </div>
                     </div>

@@ -38,9 +38,16 @@ public class JobPostActivityController {
             String currentUsername = authentication.getName();
             model.addAttribute("username", currentUsername);
             if (authentication.getAuthorities().contains(new SimpleGrantedAuthority("Recruiter"))) {
-                List<RecuiterJobsDto> recuiterJobs = jobPostActivityService.getRecruiterJobs(((RecruiterProfile)
+                List<RecuiterJobsDto> recruiterJobs = jobPostActivityService.getRecruiterJobs(((RecruiterProfile)
                         currentUserProfile).getUserAccountId());
-                model.addAttribute("jobPost", recuiterJobs);
+                for (RecuiterJobsDto job : recruiterJobs) {
+                    System.out.println("Job ID: " + job.getJobPostId());
+                    System.out.println("Job Title: " + job.getJobTitle());
+                    System.out.println("Company ID: " + (job.getJobCompanyId() != null ? job.getJobCompanyId() : "NULL"));
+                }
+
+                model.addAttribute("jobPost", recruiterJobs);
+
             }
         }
         model.addAttribute("user", currentUserProfile);
@@ -63,7 +70,7 @@ public class JobPostActivityController {
         }
         jobPostActivity.setPostedDate(new Date());
         model.addAttribute("jobPostActivity", jobPostActivity);
-        JobPostActivity saved = jobPostActivityService.addNew(jobPostActivity);
+        jobPostActivityService.addNew(jobPostActivity);
         return "redirect:/dashboard/";
 
     }
