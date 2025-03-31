@@ -70,6 +70,9 @@ public class JobLocation {
         this.state = state;
     }
 
+    public JobLocation() {
+    }
+
     @Override
     public String toString() {
         return "JobLocation{" +

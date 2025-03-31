@@ -33,4 +33,9 @@ public class JobPostActivityService {
         return recuiterJobsDtoList;
     }
 
+    public JobPostActivity getOne(int id) {
+        return jobPostActivityRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Job not found")
+                );
+    }
 }
