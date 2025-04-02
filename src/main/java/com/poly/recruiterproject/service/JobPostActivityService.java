@@ -5,6 +5,8 @@ import com.poly.recruiterproject.repository.IRecruiterJobs;
 import com.poly.recruiterproject.repository.JobPostActivityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,4 +40,5 @@ public class JobPostActivityService {
                 .orElseThrow(() -> new RuntimeException("Job not found")
                 );
     }
+
 }
