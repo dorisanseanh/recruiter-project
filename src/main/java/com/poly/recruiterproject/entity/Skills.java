@@ -23,6 +23,16 @@ public class Skills {
     @JoinColumn(name = "job_seeker_profile")
     private JobSeekerProfile jobSeekerProfile;
 
+    public Skills() {
+    }
+
+    public Skills(Integer skillId, String experienceLevel, String skillName, String yearOfExperience, JobSeekerProfile jobSeekerProfile) {
+        this.skillId = skillId;
+        this.experienceLevel = experienceLevel;
+        this.skillName = skillName;
+        this.yearOfExperience = yearOfExperience;
+        this.jobSeekerProfile = jobSeekerProfile;
+    }
     public Integer getSkillId() {
         return skillId;
     }
@@ -63,14 +73,4 @@ public class Skills {
         this.jobSeekerProfile = jobSeekerProfile;
     }
 
-    public Skills() {
-    }
-
-    public Skills(Integer skillId, String experienceLevel, String skillName, String yearOfExperience, JobSeekerProfile jobSeekerProfile) {
-        this.skillId = skillId;
-        this.experienceLevel = experienceLevel;
-        this.skillName = skillName;
-        this.yearOfExperience = yearOfExperience;
-        this.jobSeekerProfile = jobSeekerProfile;
-    }
 }

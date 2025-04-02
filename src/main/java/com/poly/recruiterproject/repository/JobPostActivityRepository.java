@@ -1,6 +1,5 @@
 package com.poly.recruiterproject.repository;
 
-import com.poly.recruiterproject.entity.IRecruiterJobs;
 import com.poly.recruiterproject.entity.JobPostActivity;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -9,7 +8,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface JobPostActivityRepository extends CrudRepository<JobPostActivity, Integer> {
-
     @Query(value = " SELECT COUNT(s.user_id) as totalCandidates,j.job_post_id,j.job_title,l.id as locationId,l.city,l.state,l.country,c.id as companyId,c.name as companyName FROM job_post_activity j " +
             " inner join job_location l " +
             " on j.job_location_id = l.id " +

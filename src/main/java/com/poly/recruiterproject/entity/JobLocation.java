@@ -23,6 +23,17 @@ public class JobLocation {
     @OneToMany(mappedBy = "jobLocationId", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<JobPostActivity> jobPosts;
 
+
+    public JobLocation(int id, String city, String country, String state) {
+        this.id = id;
+        this.city = city;
+        this.country = country;
+        this.state = state;
+    }
+
+    public JobLocation() {
+    }
+
     public int getId() {
         return id;
     }
@@ -62,17 +73,6 @@ public class JobLocation {
     public void setJobPosts(List<JobPostActivity> jobPosts) {
         this.jobPosts = jobPosts;
     }
-
-    public JobLocation(int id, String city, String country, String state) {
-        this.id = id;
-        this.city = city;
-        this.country = country;
-        this.state = state;
-    }
-
-    public JobLocation() {
-    }
-
     @Override
     public String toString() {
         return "JobLocation{" +

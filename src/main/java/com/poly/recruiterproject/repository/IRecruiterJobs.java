@@ -1,4 +1,4 @@
-package com.poly.recruiterproject.entity;
+package com.poly.recruiterproject.repository;
 
 public interface IRecruiterJobs {
     Long getTotalCandidates();
