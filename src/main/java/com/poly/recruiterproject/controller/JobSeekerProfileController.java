@@ -89,9 +89,9 @@ public class JobSeekerProfileController {
             resumeName = StringUtils.cleanPath(Objects.requireNonNull(pdf.getOriginalFilename()));
             jobSeekerProfile.setResume(resumeName);
         }
-         jobSeekerProfileService.addNew(jobSeekerProfile);
+       JobSeekerProfile seekerProfile =  jobSeekerProfileService.addNew(jobSeekerProfile);
+        String uploadDir = "photos/candidate/" + seekerProfile.getUserAccountId();
         try {
-            String uploadDir = "photos/candidate/" + jobSeekerProfile.getUserAccountId();
             if (!Objects.equals(image.getOriginalFilename(), "")) {
                 FileUploadUtil.saveFile(uploadDir, imageName, image);
             }
