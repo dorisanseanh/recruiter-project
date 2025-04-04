@@ -1100,3 +1100,8 @@
 2025-04-03T22:58:13.224+07:00 TRACE 19412 --- [http-nio-8080-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (1:INTEGER) <- [2]
 2025-04-03T22:58:13.228+07:00 DEBUG 19412 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : select jsp1_0.user_account_id,jsp1_0.city,jsp1_0.country,jsp1_0.employment_type,jsp1_0.first_name,jsp1_0.last_name,jsp1_0.profile_photo,jsp1_0.resume,jsp1_0.state,u1_0.user_id,u1_0.email,u1_0.is_active,u1_0.password,u1_0.registration_date,u1_0.user_type_id,uti1_0.user_type_id,uti1_0.user_type_name,jsp1_0.work_authorization from job_seeker_profile jsp1_0 join users u1_0 on u1_0.user_id=jsp1_0.user_account_id join users_type uti1_0 on uti1_0.user_type_id=u1_0.user_type_id where jsp1_0.user_account_id=?
 2025-04-03T22:58:13.228+07:00 TRACE 19412 --- [http-nio-8080-exec-9] org.hibernate.orm.jdbc.bind              : binding parameter (1:INTEGER) <- [2]
+2025-04-03T23:11:52.253+07:00  INFO 19412 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-03T23:11:52.354+07:00  INFO 19412 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-04-03T23:11:52.357+07:00  INFO 19412 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-03T23:11:52.359+07:00  INFO 19412 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2025-04-03T23:11:52.367+07:00  INFO 19412 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
