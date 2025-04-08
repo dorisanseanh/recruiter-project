@@ -7,8 +7,7 @@ import jakarta.persistence.*;
         name = "job_seeker_save", // Optional: nếu bạn muốn đặt rõ tên bảng
         uniqueConstraints = {
                 @UniqueConstraint(columnNames = {"user_id", "job"}) // <-- dùng tên CỘT trong DB
-        }
-)
+        })
 public class JobSeekerSave {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
